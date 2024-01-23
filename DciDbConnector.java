@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DciDbConnector {
-	private static String postgresDriver = "org.postgresql.Driver";
 	private static String databaseUrl = "jdbc:postgresql://localhost:5432/";
 	private static String uid = "postgres";
 	private static String password = "root";
@@ -23,7 +22,6 @@ public class DciDbConnector {
 	public static Connection getConnection(String dbName) {
 		try {
 			if (conn == null || conn.isClosed()) {
-				Class.forName(postgresDriver);
 				String url = (databaseUrl + dbName);
 				conn = DriverManager.getConnection(url, uid, password);
 			}
